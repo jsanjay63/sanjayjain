@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanjay Jain — Principal AI Engineer</title>
+<meta name="description" content="Sanjay Jain — Principal AI Engineer specializing in production GenAI, agentic AI, RAG, LLM applications, and large-scale distributed data platforms.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbfaf8;
+    --bg-alt:#f3f1ec;
+    --ink:#14181f;
+    --ink-soft:#4a5160;
+    --ink-faint:#8890a0;
+    --line:#e6e3db;
+    --accent:#3d5a80;
+    --accent-2:#c96f4a;
+    --card:#ffffff;
+    --radius:14px;
+    --maxw:1100px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces','Inter',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  section{padding:120px 0;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:8px;height:8px;border-radius:50%;
+    background:var(--accent-2);
+    display:inline-block;
+  }
+  .section-num{
+    font-family:'Fraunces',serif;
+    font-size:14px;
+    color:var(--ink-faint);
+    letter-spacing:0.05em;
+  }
+
+  /* NAV */
+  header{
+    position:sticky;top:0;z-index:100;
+    border-bottom:1px solid var(--line);
+  }
+  header::before{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:rgba(251,250,248,0.85);
+    backdrop-filter:blur(10px);
+  }
+  nav{
+    max-width:var(--maxw);margin:0 auto;padding:18px 32px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{font-family:'Fraunces',serif;font-weight:600;font-size:19px;}
+  .logo span{color:var(--accent-2);}
+  .nav-links{display:flex;gap:36px;align-items:center;}
+  .nav-links a{
+    font-size:14.5px;font-weight:500;color:var(--ink-soft);
+    transition:color .2s;
+    padding-bottom:2px;
+    border-bottom:1px solid transparent;
+  }
+  .nav-links a:hover, .nav-links a.active{color:var(--ink);border-color:var(--accent-2);}
+  .nav-cta{
+    background:var(--ink);color:#fff !important;
+    padding:9px 20px;border-radius:100px;font-size:14px;font-weight:600;
+    border-bottom:none !important;
+  }
+  .nav-cta:hover{background:var(--accent);}
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .menu-btn span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;}
+
+  /* HERO */
+  .hero{padding:110px 0 90px;}
+  .hero-grid{display:grid;grid-template-columns:1.3fr 0.9fr;gap:64px;align-items:center;}
+  .hero h1{font-size:52px;line-height:1.08;margin-bottom:22px;}
+  .hero h1 em{font-style:italic;color:var(--accent);}
+  .hero p.lede{font-size:18px;color:var(--ink-soft);max-width:560px;margin-bottom:34px;}
+  .btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px;}
+  .btn{
+    padding:13px 26px;border-radius:100px;font-size:14.5px;font-weight:600;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .2s, box-shadow .2s, background .2s;
+    border:1px solid transparent;
+  }
+  .btn-primary{background:var(--ink);color:#fff;}
+  .btn-primary:hover{background:var(--accent);transform:translateY(-1px);}
+  .btn-ghost{border-color:var(--line);color:var(--ink);background:var(--card);}
+  .btn-ghost:hover{border-color:var(--ink);transform:translateY(-1px);}
+
+  .stat-row{display:flex;gap:40px;flex-wrap:wrap;}
+  .stat b{display:block;font-family:'Fraunces',serif;font-size:28px;color:var(--ink);}
+  .stat span{font-size:13px;color:var(--ink-faint);}
+
+  .hero-photo{
+    position:relative;
+    aspect-ratio:1/1.05;
+    border-radius:24px;
+    background:linear-gradient(160deg,var(--accent) 0%,#2a3f5c 100%);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .hero-photo .initials{
+    font-family:'Fraunces',serif;
+    font-size:clamp(64px,14vw,120px);color:rgba(255,255,255,0.92);font-weight:500;
+  }
+  .hero-photo img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 18%;
+  }
+  .hero-photo .tag{
+    position:absolute;bottom:22px;left:22px;right:22px;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,0.25);
+    border-radius:12px;padding:14px 16px;color:#fff;font-size:13px;
+    line-height:1.4;
+  }
+
+  /* SECTION HEAD */
+  .section-head{margin-bottom:52px;max-width:640px;}
+  .section-head h2{font-size:34px;margin:14px 0 14px;}
+  .section-head p{color:var(--ink-soft);font-size:16px;}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+  .about-grid p{color:var(--ink-soft);margin-bottom:16px;font-size:16px;}
+  .pill-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
+  .pill{
+    background:var(--bg-alt);border:1px solid var(--line);
+    padding:9px 16px;border-radius:100px;font-size:13.5px;font-weight:500;color:var(--ink-soft);
+  }
+  .capability-list{display:flex;flex-direction:column;gap:22px;}
+  .capability{
+    display:flex;gap:16px;padding:20px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);
+  }
+  .capability .num{font-family:'Fraunces',serif;color:var(--accent-2);font-size:15px;font-weight:600;flex-shrink:0;}
+  .capability h4{font-size:16px;margin-bottom:6px;}
+  .capability p{font-size:14.5px;color:var(--ink-soft);margin:0;}
+
+  /* TECH MARQUEE */
+  .marquee-wrap{
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:28px 0;overflow:hidden;background:var(--bg-alt);
+  }
+  .marquee{display:flex;gap:14px;width:max-content;animation:scroll 32s linear infinite;}
+  .marquee:hover{animation-play-state:paused;}
+  .marquee .pill{background:var(--card);white-space:nowrap;}
+  @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* EDUCATION */
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+  .edu-col h4{font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:18px;}
+  .edu-item{padding:14px 0;border-bottom:1px solid var(--line);}
+  .edu-item:last-child{border-bottom:none;}
+  .edu-item b{display:block;font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:4px;}
+  .edu-item span{font-size:13px;color:var(--ink-faint);}
+
+  /* EXPERIENCE */
+  .timeline{border-left:1px solid var(--line);margin-left:6px;}
+  .tl-item{position:relative;padding:0 0 48px 36px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:"";position:absolute;left:-6.5px;top:4px;
+    width:12px;height:12px;border-radius:50%;background:var(--accent-2);
+    border:3px solid var(--bg);
+  }
+  .tl-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;}
+  .tl-role{font-size:19px;font-family:'Fraunces',serif;font-weight:600;}
+  .tl-company{color:var(--accent);font-weight:600;font-size:15px;}
+  .tl-period{font-size:13px;color:var(--ink-faint);font-weight:500;white-space:nowrap;}
+  .tl-item ul{margin:10px 0 0;padding-left:18px;color:var(--ink-soft);font-size:15px;}
+  .tl-item li{margin-bottom:6px;}
+  .tl-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .tl-tags span{font-size:12px;color:var(--ink-faint);background:var(--bg-alt);padding:4px 10px;border-radius:100px;}
+
+  /* PROJECTS */
+  .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  .project-card{
+    border:1px solid var(--line);border-radius:var(--radius);background:var(--card);
+    padding:28px;display:flex;flex-direction:column;height:100%;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .project-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(20,24,31,0.06);}
+  .project-tag{font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent-2);margin-bottom:14px;}
+  .project-card h3{font-size:20px;margin-bottom:10px;}
+  .project-card p{color:var(--ink-soft);font-size:14.5px;flex-grow:1;margin-bottom:16px;}
+  .project-stack{display:flex;flex-wrap:wrap;gap:8px;}
+  .project-stack span{font-size:11.5px;color:var(--ink-faint);border:1px solid var(--line);padding:4px 9px;border-radius:6px;}
+
+  /* CONTACT */
+  .contact-section{background:var(--ink);color:#fff;border-radius:28px;margin:0 32px;padding:80px 56px;}
+  .contact-inner{max-width:var(--maxw);margin:0 auto;}
+  .contact-section .eyebrow{color:#e9c4a8;}
+  .contact-section .eyebrow::before{background:#e9c4a8;}
+  .contact-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;}
+  .contact-section h2{font-size:36px;color:#fff;margin-bottom:16px;}
+  .contact-section p{color:rgba(255,255,255,0.68);font-size:16px;max-width:480px;}
+  .contact-links{display:flex;flex-direction:column;gap:0;margin-top:32px;}
+  .contact-link{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.14);
+    font-size:16px;font-weight:600;
+  }
+  .contact-link:first-child{border-top:1px solid rgba(255,255,255,0.14);}
+  .contact-link span.small{font-weight:400;color:rgba(255,255,255,0.55);font-size:13.5px;}
+  .contact-link .arrow{color:#e9c4a8;transition:transform .2s;}
+  .contact-link:hover .arrow{transform:translateX(4px);}
+  .contact-form{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:16px;padding:28px;}
+  .contact-form label{display:block;font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:6px;margin-top:16px;}
+  .contact-form label:first-child{margin-top:0;}
+  .contact-form input, .contact-form textarea{
+    width:100%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);
+    border-radius:8px;padding:11px 13px;color:#fff;font-family:inherit;font-size:14px;
+  }
+  .contact-form textarea{resize:vertical;min-height:90px;}
+  .contact-form input::placeholder, .contact-form textarea::placeholder{color:rgba(255,255,255,0.35);}
+  .contact-form button{
+    margin-top:20px;width:100%;background:#e9c4a8;color:var(--ink);border:none;
+    padding:13px;border-radius:8px;font-weight:700;font-size:14.5px;cursor:pointer;transition:opacity .2s;
+  }
+  .contact-form button:hover{opacity:0.88;}
+  .form-note{font-size:12px;color:rgba(255,255,255,0.4);margin-top:10px;}
+
+  footer{padding:44px 32px;text-align:center;color:var(--ink-faint);font-size:13.5px;}
+  footer a{color:var(--ink-soft);font-weight:600;}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  @media (max-width:860px){
+    .hero-grid, .about-grid, .contact-grid{grid-template-columns:1fr;}
+    .hero-photo{order:-1;width:100%;max-width:280px;aspect-ratio:1/1;margin:0 auto 32px;}
+    .hero-photo .tag{display:none;}
+    .project-grid{grid-template-columns:1fr;}
+    .nav-links{
+      position:fixed;top:64px;left:0;right:0;bottom:0;
+      background:var(--bg);flex-direction:column;justify-content:flex-start;
+      padding:36px 32px;gap:26px;
+      transform:translateX(100%);transition:transform .3s ease;
+    }
+    .nav-links.open{transform:translateX(0);}
+    .menu-btn{display:block;}
+    .contact-section{padding:56px 28px;margin:0 16px;}
+    .hero h1{font-size:38px;}
+    section{padding:80px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#home" class="logo">Sanjay Jain<span>.</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact" class="nav-cta">Get in Touch</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Principal AI Engineer</div>
+      <h1>Architecting <em>production-grade AI</em> systems at enterprise scale.</h1>
+      <p class="lede">13+ years designing and delivering enterprise AI, ML, and distributed data platforms across financial services, healthcare, retail, and geospatial domains — from Fortune 100 programs to early-stage startups.</p>
+      <div class="btn-row">
+        <a href="#contact" class="btn btn-primary">Get in touch →</a>
+        <a href="#experience" class="btn btn-ghost">View experience</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>13+</b><span>Years of Experience</span></div>
+        <div class="stat"><b>4</b><span>Industries Served</span></div>
+        <div class="stat"><b>Fortune 100</b><span>Enterprise Clients</span></div>
+        <div class="stat"><b>Startups</b><span>&amp; Enterprises</span></div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="initials">SJ</div>
+      <div class="tag">Currently: Principal Engineer &ndash; Data/AI at Entrivis Tech, building production GenAI agents for Wells Fargo &amp; CVS Health</div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">01 &middot; About</span>
+      <h2>Deep AI expertise, applied where it matters.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p>I'm a Principal AI Engineer with 13+ years of experience architecting and delivering enterprise-scale AI, ML, and distributed data platforms across financial services, healthcare, retail, and geospatial domains.</p>
+        <p>My focus is on production GenAI systems — agentic AI, retrieval-augmented generation (RAG), and LLM-powered applications — built on cloud-native infrastructure and large-scale distributed computing. I've led cross-functional engineering teams, defined technical strategy, and delivered AI platforms serving Fortune 100 enterprises, alongside hands-on work with fast-moving startups.</p>
+        <p>I care most about the gap between a promising model and a production system people can actually depend on — reliability, scale, cost, and trust all matter as much as accuracy.</p>
+        <div class="pill-grid">
+          <span class="pill">Enterprise AI Strategy</span>
+          <span class="pill">Technical Leadership</span>
+          <span class="pill">Fortune 100 &amp; Startups</span>
+        </div>
+      </div>
+      <div class="capability-list reveal">
+        <div class="capability">
+          <div class="num">01</div>
+          <div><h4>GenAI &amp; Agentic Systems</h4><p>Designing autonomous, tool-using agents and multi-step LLM workflows for real enterprise processes.</p></div>
+        </div>
+        <div class="capability">
+          <div class="num">02</div>
+          <div><h4>RAG &amp; LLM Applications</h4><p>Retrieval-augmented generation pipelines and LLM applications built for accuracy, latency, and cost at scale.</p></div>
+        </div>
+        <div class="capability">
+          <div class="num">03</div>
+          <div><h4>Distributed Data Platforms</h4><p>Large-scale distributed computing and data platforms that power ML and analytics across the business.</p></div>
+        </div>
+        <div class="capability">
+          <div class="num">04</div>
+          <div><h4>Cloud-Native AI Architecture</h4><p>End-to-end AI platform architecture on modern cloud infrastructure, built to scale and to last.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee" id="marquee">
+    <span class="pill">LLMs</span>
+    <span class="pill">RAG</span>
+    <span class="pill">Agentic AI</span>
+    <span class="pill">LangGraph</span>
+    <span class="pill">LangChain</span>
+    <span class="pill">MCP</span>
+    <span class="pill">OpenAI Agents SDK</span>
+    <span class="pill">Python</span>
+    <span class="pill">Java</span>
+    <span class="pill">TensorFlow</span>
+    <span class="pill">Scikit-Learn</span>
+    <span class="pill">MLflow</span>
+    <span class="pill">AWS</span>
+    <span class="pill">GCP</span>
+    <span class="pill">Azure</span>
+    <span class="pill">PySpark</span>
+    <span class="pill">Kafka</span>
+    <span class="pill">Airflow</span>
+    <span class="pill">Snowflake</span>
+    <span class="pill">Vector DB / Pinecone</span>
+    <span class="pill">Django</span>
+    <span class="pill">FastAPI</span>
+    <span class="pill">Kubernetes</span>
+    <span class="pill">Terraform</span>
+  </div>
+</div>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">02 &middot; Projects</span>
+      <h2>Selected work.</h2>
+      <p>Production GenAI, ML, and data platforms delivered for Fortune 100 enterprises and high-growth startups.</p>
+    </div>
+    <div class="project-grid">
+      <div class="project-card reveal">
+        <div class="project-tag">Financial Services &middot; Wells Fargo</div>
+        <h3>Wirectifier</h3>
+        <p>A production GenAI agent that reviews wire payment transactions, identifies intermediary bank code discrepancies, and autonomously initiates corrective actions &mdash; cutting manual review time by over 80%.</p>
+        <div class="project-stack"><span>MCP</span><span>OpenAI Agents SDK</span><span>Playwright Agent</span><span>LangSmith</span></div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-tag">Financial Services &middot; Wells Fargo</div>
+        <h3>SMILA</h3>
+        <p>A GenAI agentic assistant integrating enterprise knowledge and action systems across Jira, Confluence, SharePoint, GitHub, and BAM &mdash; enabling contextual retrieval, application modernization, and automated actions.</p>
+        <div class="project-stack"><span>LangGraph</span><span>Kafka</span><span>Vector DB</span><span>RAG</span></div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-tag">Insurance &middot; Sivisoft / SquareML</div>
+        <h3>RecordAIze</h3>
+        <p>A GenAI-based data processing platform enabling underwriters to process unstructured content &mdash; improving underwriting efficiency by 30x.</p>
+        <div class="project-stack"><span>LangChain</span><span>SageMaker</span><span>Gemini</span><span>OCR</span><span>RAG</span></div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-tag">Retail / MarTech &middot; Walmart, Best Buy, Verizon</div>
+        <h3>EPP &amp; ARF</h3>
+        <p>A real-time streaming data platform enabling in-session predictions and automated model retraining, executing marketing campaigns that drove revenue up to 10x.</p>
+        <div class="project-stack"><span>Streaming</span><span>AutoML</span><span>AWS</span></div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-tag">Geospatial &middot; Ford, Daimler</div>
+        <h3>HERE Platform Streaming Pipelines</h3>
+        <p>Batch and real-time streaming data pipelines processing terabytes of data and millions of events per day on the #1-ranked HERE Platform.</p>
+        <div class="project-stack"><span>Spark</span><span>Ray</span><span>Dask</span><span>Kubernetes</span></div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-tag">Geospatial &middot; Facebook, Yelp</div>
+        <h3>Places Data Store (PDS)</h3>
+        <p>A scalable system to receive, store, manage, and deliver high-quality places data through the Places Manager API &mdash; processing 1.2B+ records a day.</p>
+        <div class="project-stack"><span>Java</span><span>HBase</span><span>Hive</span><span>MapReduce</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">03 &middot; Experience</span>
+      <h2>Where I&rsquo;ve built.</h2>
+      <p>13+ years architecting AI, ML, and data platforms across financial services, insurance, retail, and geospatial domains.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-head">
+          <div><span class="tl-role">Principal Engineer &ndash; Data/AI</span> &middot; <span class="tl-company">Entrivis Tech</span></div>
+          <span class="tl-period">Feb 2025 &mdash; Present</span>
+        </div>
+        <ul>
+          <li><b>CVS Health (CAM):</b> Architected an AI-powered claims processing system that automated claim analysis and cut manual review time by over 20%.</li>
+          <li><b>Wells Fargo (Wirectifier):</b> Built a production GenAI agent that reviews wire payment transactions, identifies intermediary bank code discrepancies, and autonomously initiates corrective actions &mdash; reducing manual review time by over 80%. Built LangSmith-based evaluation workflows to measure agent execution and tool-call accuracy.</li>
+          <li><b>Wells Fargo (SMILA):</b> Architected a GenAI agentic assistant integrating enterprise knowledge and action systems across Jira, Confluence, SharePoint, GitHub, and BAM for contextual retrieval and automated actions.</li>
+        </ul>
+        <div class="tl-tags"><span>Python</span><span>MCP</span><span>OpenAI Agents SDK</span><span>LangGraph</span><span>LangSmith</span><span>Vertex AI</span></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-head">
+          <div><span class="tl-role">Lead Data Scientist</span> &middot; <span class="tl-company">Sivisoft / SquareML (acquired by BNB)</span></div>
+          <span class="tl-period">Jun 2021 &mdash; Oct 2024</span>
+        </div>
+        <ul>
+          <li><b>RecordAIze:</b> Led architecture and implementation of a GenAI-based data processing platform enabling underwriters to process unstructured content &mdash; improving underwriting efficiency by 30x.</li>
+          <li><b>EPP &amp; ARF:</b> Led a real-time streaming data platform for MarTech enabling in-session predictions and automated model retraining for clients including Walmart, Best Buy, Advance Auto Parts, and Verizon &mdash; driving campaign revenue up to 10x.</li>
+        </ul>
+        <div class="tl-tags"><span>LLMs</span><span>RAG</span><span>SageMaker</span><span>PySpark</span><span>Streaming ML</span></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-head">
+          <div><span class="tl-role">Senior Software Engineer</span> &middot; <span class="tl-company">HERE Technologies</span></div>
+          <span class="tl-period">Sep 2015 &mdash; Apr 2021</span>
+        </div>
+        <ul>
+          <li>Led design and implementation of batch and real-time streaming data pipelines on the #1-ranked HERE Platform, processing terabytes of data and millions of events per day for clients including Ford and Daimler.</li>
+          <li>Built the HERE MLflow plugin for managing ML experiments across the platform and marketplace.</li>
+          <li>Developed the Places Data Store (PDS), processing 1.2B+ place records a day for clients including Facebook and Yelp.</li>
+        </ul>
+        <div class="tl-tags"><span>Python</span><span>Spark</span><span>Ray</span><span>Dask</span><span>Kubernetes</span><span>MLflow</span></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-head">
+          <div><span class="tl-role">Systems Engineer</span> &middot; <span class="tl-company">Tata Consultancy Services</span></div>
+          <span class="tl-period">Dec 2012 &mdash; Sep 2015</span>
+        </div>
+        <ul>
+          <li>Built MCube, a second-screen iOS companion app, including a data pipeline and collaborative-filtering recommendation engine powered by a graph-based Neo4j database.</li>
+        </ul>
+        <div class="tl-tags"><span>Java</span><span>Neo4j</span><span>Spring</span><span>AWS EMR</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">04 &middot; Education &amp; Credentials</span>
+      <h2>Formal training and continued learning.</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-col reveal">
+        <h4>Education</h4>
+        <div class="edu-item">
+          <b>Postgraduate Program in Artificial Intelligence and Machine Learning</b>
+          <span>BITS Pilani &middot; 2018 &ndash; 2020</span>
+        </div>
+        <div class="edu-item">
+          <b>Post Graduate Diploma in Management &ndash; IT Projects</b>
+          <span>Welingkar Institute of Management &middot; 2016 &ndash; 2018</span>
+        </div>
+        <div class="edu-item">
+          <b>Bachelor of Engineering</b>
+          <span>University of Mumbai &middot; 2008 &ndash; 2012</span>
+        </div>
+      </div>
+      <div class="edu-col reveal">
+        <h4>Certifications &amp; Training</h4>
+        <div class="edu-item">
+          <b>Google Cloud Certified Professional Machine Learning Engineer</b>
+          <span>Google Cloud &middot; 2025</span>
+        </div>
+        <div class="edu-item">
+          <b>Perplexity AI Business Fellow</b>
+          <span>Perplexity &middot; 2025</span>
+        </div>
+        <div class="edu-item">
+          <b>Leadership Accelerator &ndash; Servant Leadership Program</b>
+          <span>HERE Technologies &middot; 2021</span>
+        </div>
+        <div class="edu-item">
+          <b>MongoDB for Java Developers Certification</b>
+          <span>MongoDB &middot; 2015</span>
+        </div>
+        <div class="edu-item">
+          <b>Google Analytics Certification</b>
+          <span>Google &middot; 2014</span>
+        </div>
+        <div class="edu-item">
+          <b>Oracle Certified Professional Java Programmer</b>
+          <span>Oracle &middot; 2012</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-section">
+      <div class="contact-inner">
+        <div class="contact-grid">
+          <div>
+            <div class="eyebrow">05 · Contact</div>
+            <h2>Let's build something reliable.</h2>
+            <p>Open to conversations about enterprise AI strategy, GenAI platform work, and select advisory or leadership opportunities.</p>
+            <div class="contact-links">
+              <a class="contact-link" href="mailto:jsanjayce@gmail.com">
+                <span>Email<br><span class="small">jsanjayce@gmail.com</span></span>
+                <span class="arrow">→</span>
+              </a>
+              <a class="contact-link" href="https://linkedin.com/in/sanjay-jain-2517bb90" target="_blank" rel="noopener">
+                <span>LinkedIn<br><span class="small">linkedin.com/in/sanjay-jain-2517bb90</span></span>
+                <span class="arrow">→</span>
+              </a>
+              <div class="contact-link" style="cursor:default;">
+                <span>Location<br><span class="small">Charlotte, NC</span></span>
+              </div>
+            </div>
+          </div>
+          <form class="contact-form" action="mailto:jsanjayce@gmail.com" method="post" enctype="text/plain">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@company.com" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="What would you like to build?" required></textarea>
+            <button type="submit">Send message</button>
+            <div class="form-note">Opens your email client — replace with a form service (e.g. Formspree) for a no-reload submit.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© <span id="year"></span> Sanjay Jain &middot; Charlotte, NC. Built with a design inspired by modern engineering portfolios.</p>
+</footer>
+
+<script>
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navA = document.querySelectorAll('.nav-links a[href^="#"]');
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navA.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px' });
+  sections.forEach(s => navObserver.observe(s));
+
+  // Duplicate marquee content for seamless loop
+  const marquee = document.getElementById('marquee');
+  marquee.innerHTML += marquee.innerHTML;
+</script>
+
+</body>
+</html>
