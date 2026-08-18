@@ -566,7 +566,7 @@
               </div>
             </div>
           </div>
-          <form class="contact-form" action="mailto:jsanjayce@gmail.com" method="post" enctype="text/plain">
+          <form class="contact-form" id="contactForm">
             <label for="name">Name</label>
             <input id="name" name="name" type="text" placeholder="Your name" required>
             <label for="email">Email</label>
@@ -587,6 +587,20 @@
 </footer>
 
 <script>
+  // Contact form — build a mailto: link via JS instead of a native form
+  // submission (submitting a <form> directly to a mailto: action triggers
+  // browsers' "not secure" warning; opening the link via JS does not).
+  const contactForm = document.getElementById('contactForm');
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const subject = encodeURIComponent(`Portfolio contact from ${name}`);
+    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+    window.location.href = `mailto:jsanjayce@gmail.com?subject=${subject}&body=${body}`;
+  });
+
   // Mobile menu
   const menuBtn = document.getElementById('menuBtn');
   const navLinks = document.getElementById('navLinks');
